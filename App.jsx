@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import GraphCanvas from "./components/GraphCanvas.jsx";
+import GraphCanvas from "./GraphCanvas.jsx";
 
 const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL || "http://localhost:3000").replace(/\/$/, "");
 

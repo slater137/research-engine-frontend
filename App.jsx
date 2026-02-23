@@ -1,7 +1,21 @@
 import { useMemo, useState } from "react";
 import GraphCanvas from "./GraphCanvas.jsx";
 
-const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL || "http://localhost:3000").replace(/\/$/, "");
+function normalizeBackendUrl(rawUrl) {
+  const trimmed = `${rawUrl || ""}`.trim();
+  if (!trimmed) {
+    return "http://localhost:3000";
+  }
+
+  const withoutTrailingSlash = trimmed.replace(/\/$/, "");
+  if (/^https?:\/\//i.test(withoutTrailingSlash)) {
+    return withoutTrailingSlash;
+  }
+
+  return `https://${withoutTrailingSlash.replace(/^\/+/, "")}`;
+}
+
+const BACKEND_URL = normalizeBackendUrl(import.meta.env.VITE_BACKEND_URL || "http://localhost:3000");
 
 function toDisplayText(value, fallback = "Unknown") {
   if (value === null || value === undefined || value === "") {

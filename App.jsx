@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import GraphCanvas from "./GraphCanvas.jsx";
+import GraphCanvas from "./components/GraphCanvas.jsx";
 
 function normalizeBackendUrl(rawUrl) {
   const trimmed = `${rawUrl || ""}`.trim();
@@ -208,11 +208,6 @@ export default function App() {
             <div className="graph-direction-hints" aria-hidden="true">
               <span className="direction-left">References (older)</span>
               <span className="direction-right">Cited by (newer)</span>
-            </div>
-            <div className="graph-legend" aria-hidden="true">
-              <span><i className="legend-dot center" />Center</span>
-              <span><i className="legend-dot backward" />Backward</span>
-              <span><i className="legend-dot forward" />Forward</span>
             </div>
           </>
         ) : (

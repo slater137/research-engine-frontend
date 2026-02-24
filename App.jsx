@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import GraphCanvas from "./components/GraphCanvas.jsx";
+import GraphCanvas from "./GraphCanvas.jsx";
 
 function normalizeBackendUrl(rawUrl) {
   const trimmed = `${rawUrl || ""}`.trim();
